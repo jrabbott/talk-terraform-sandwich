@@ -1,9 +1,9 @@
 {
-  "name": "slides-as-code",
+  "name": "terraform-sandwich",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Reusable Vite + reveal.js starter template for talk slides",
+  "description": "Terraform Sandwich — multi-stage Terraform pattern talk deck (Vite + reveal.js)",
   "engines": {
     "node": ">=22"
   },
