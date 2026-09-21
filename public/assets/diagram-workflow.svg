@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="520" viewBox="0 0 1400 520" role="img" aria-label="Write, plan, and apply Terraform workflow">
   <defs>
     <style>
-      .label { font-family: DM Sans, Helvetica Neue, Helvetica, Arial, sans-serif; fill: #1A2A44; }
-      .muted { fill: #5a6573; }
-      .head { fill: #158158; }
-      .on { fill: #ffffff; }
-      .card { fill: #ffffff; stroke: #1A2A44; stroke-width: 3; }
-      .arrow { stroke: #158158; stroke-width: 4; fill: none; marker-end: url(#arrowHead); }
+      .label { font-family: Atkinson Hyperlegible, Helvetica Neue, Helvetica, Arial, sans-serif; fill: #121820; }
+      .muted { fill: #2c3544; }
+      .head { fill: #0c6b52; }
+      .on { fill: #f2eee6; }
+      .card { fill: #faf8f4; stroke: #121820; stroke-width: 3; }
+      .arrow { stroke: #0c6b52; stroke-width: 4; fill: none; marker-end: url(#arrowHead); }
     </style>
     <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#158158"/>
+      <path d="M0,0 L8,3 L0,6 Z" fill="#0c6b52"/>
     </marker>
   </defs>
 

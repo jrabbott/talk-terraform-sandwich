@@ -54,22 +54,23 @@ Speaker notes in `<aside class="notes">` are author-controlled HTML rendered by 
 
 ## Theming
 
+Aligned with the [slides-as-code](https://github.com/jrabbott/slides-as-code) template: Atkinson Hyperlegible, one solid paper surface, quiet motion, calm 1–2 column layouts.
+
 Brand tokens live at the top of `src/style.css`:
 
 ```css
 :root {
-  --ink: #1a2a44;
-  --muted: #5a6573;
-  --surface: #ffffff;
-  --surface-muted: #f3f3f3;
-  --accent: #158158;
-  --accent-soft: #d8efe7;
-  --on-accent: #ffffff;
-  --closing: #1a2a44;
+  --ink: #121820;
+  --muted: #2c3544;
+  --surface: #f2eee6;
+  --accent: #0c6b52;
+  --accent-soft: #c5e4d8;
+  --on-accent: #f2eee6;
+  --closing: #121820;
 }
 ```
 
-Logos and diagrams are original SVGs under `public/assets/` (no third-party marketing artwork).
+Diagrams are original SVGs under `public/assets/` using the same palette.
 
 ## CI and publish
 
