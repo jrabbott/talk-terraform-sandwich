@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1500" height="520" viewBox="0 0 1500 520" role="img" aria-label="Terraform Sandwich CI pipeline">
   <defs>
     <style>
-      .label { font-family: DM Sans, Helvetica Neue, Helvetica, Arial, sans-serif; fill: #1A2A44; }
-      .muted { fill: #5a6573; }
-      .step { fill: #e8f4f0; stroke: #1A2A44; stroke-width: 3; }
-      .accent { fill: #158158; }
-      .on { fill: #ffffff; }
-      .arrow { stroke: #158158; stroke-width: 4; fill: none; marker-end: url(#arrowHead); }
-      .dash { stroke: #5a6573; stroke-width: 3; fill: none; stroke-dasharray: 10 8; marker-end: url(#arrowMuted); }
+      .label { font-family: Atkinson Hyperlegible, Helvetica Neue, Helvetica, Arial, sans-serif; fill: #121820; }
+      .muted { fill: #2c3544; }
+      .step { fill: #faf8f4; stroke: #121820; stroke-width: 3; }
+      .accent { fill: #0c6b52; }
+      .on { fill: #f2eee6; }
+      .arrow { stroke: #0c6b52; stroke-width: 4; fill: none; marker-end: url(#arrowHead); }
+      .dash { stroke: #2c3544; stroke-width: 3; fill: none; stroke-dasharray: 10 8; marker-end: url(#arrowMuted); }
     </style>
     <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#158158"/>
+      <path d="M0,0 L8,3 L0,6 Z" fill="#0c6b52"/>
     </marker>
     <marker id="arrowMuted" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#5a6573"/>
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2c3544"/>
     </marker>
   </defs>
 
