@@ -4,7 +4,7 @@ Slide deck for the **Terraform Sandwich** talk — a multi-stage Terraform patte
 
 Built with Vite + [reveal.js](https://revealjs.com/).
 
-**Live deck (after Pages is enabled):** [https://jrabbott.github.io/terraform-sandwich/](https://jrabbott.github.io/terraform-sandwich/)
+**Live deck (after Pages is enabled):** [https://jrabbott.github.io/talk-terraform-sandwich/](https://jrabbott.github.io/talk-terraform-sandwich/)
 
 ## Requirements
 
@@ -17,7 +17,7 @@ npm ci
 npm run dev
 ```
 
-Open the URL Vite prints (usually `http://localhost:5173/terraform-sandwich/`).
+Open the URL Vite prints (usually `http://localhost:5173/talk-terraform-sandwich/`).
 
 To check the production build:
 
@@ -84,5 +84,5 @@ Dependabot watches npm and GitHub Actions weekly.
 Override the Pages base locally when needed:
 
 ```bash
-BASE_PATH=/terraform-sandwich/ npm run build
+BASE_PATH=/talk-terraform-sandwich/ npm run build
 ```
