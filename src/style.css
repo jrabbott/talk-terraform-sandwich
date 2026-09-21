@@ -1,20 +1,20 @@
 :root {
-  --ink: #1c2434;
+  --ink: #1a2a44;
   --muted: #5a6573;
   --surface: #ffffff;
-  --surface-muted: #e8ecf0;
-  --accent: #0f6e56;
+  --surface-muted: #f3f3f3;
+  --accent: #158158;
   --accent-soft: #d8efe7;
   --on-accent: #ffffff;
-  --closing: #1c2434;
+  --closing: #1a2a44;
   --r-background-color: var(--surface);
   --r-main-font: "DM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --r-heading-font: "DM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --r-main-color: var(--ink);
   --r-heading-color: var(--ink);
   --r-link-color: var(--accent);
-  --r-link-color-hover: #0a5240;
-  --r-selection-background-color: #0f6e5640;
+  --r-link-color-hover: #0f5f42;
+  --r-selection-background-color: #15815840;
 }
 
 .reveal {
@@ -149,6 +149,18 @@
   background: var(--surface-muted) !important;
 }
 
+.slide-title .motif,
+.slide-closing .motif {
+  position: absolute;
+  right: -1.5em;
+  bottom: -2em;
+  width: 42%;
+  height: auto;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .slide-title .title-stack {
   position: relative;
   z-index: 2;
@@ -174,31 +186,6 @@
   font-size: 0.95em;
   font-weight: 500;
   color: var(--muted);
-}
-
-/* —— Gallery —— */
-
-.slide-gallery {
-  background: var(--surface) !important;
-}
-
-.gallery-grid {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 0.55em;
-  height: calc(100% - 2.4em);
-  margin: 2.1em 1.1em 0.8em;
-  box-sizing: border-box;
-}
-
-.gallery-grid img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 /* —— List —— */
@@ -236,6 +223,16 @@
   width: auto;
   height: auto;
   object-fit: contain;
+}
+
+.slide-diagram.diagram-with-lede .content-pad {
+  padding-bottom: 0;
+  height: auto;
+}
+
+.slide-diagram.diagram-with-lede .diagram-frame {
+  height: calc(100% - 5.2em);
+  margin-top: 0.4em;
 }
 
 /* —— Modes (3-column) —— */
@@ -409,6 +406,33 @@
   font-size: 0.95em;
   font-weight: 500;
   color: var(--accent-soft);
+}
+
+.slide-closing .motif {
+  filter: invert(1) brightness(1.4);
+  opacity: 0.18;
+}
+
+.lede {
+  margin: 0.35em 0 0;
+  font-size: 0.95em;
+  line-height: 1.35;
+  color: var(--muted);
+  max-width: 22em;
+}
+
+.problem-label,
+.solution-label {
+  margin: 0 0 0.25em;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.solution-label {
+  margin-top: 0.85em;
 }
 
 /* Utility */

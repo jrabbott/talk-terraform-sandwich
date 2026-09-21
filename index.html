@@ -5,184 +5,234 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Slides as code — reusable Vite + reveal.js starter template for talks"
+      content="Terraform Sandwich — a multi-stage Terraform pattern for CI/CD when resources depend on a running app"
     />
-    <title>Slides as code</title>
+    <title>Terraform Sandwich</title>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
         <!-- 1. Title -->
-        <section class="slide-title" data-background-color="#e8ecf0">
+        <section class="slide-title" data-background-color="#f3f3f3">
           <img
             class="logo logo-tl"
-            src="assets/logo-placeholder.svg"
-            alt="Your logo"
+            src="assets/logo-hippo.svg"
+            alt="hippo"
+          />
+          <img
+            class="motif"
+            src="assets/fingerprint-motif.svg"
+            alt=""
+            aria-hidden="true"
           />
           <div class="title-stack">
-            <p class="eyebrow">Slides as code</p>
-            <h1>Talk title</h1>
-            <p class="speakers">Your name</p>
+            <p class="eyebrow">Multi-stage Terraform pattern</p>
+            <h1>Terraform Sandwich</h1>
+            <p class="speakers">Hippo</p>
           </div>
         </section>
 
-        <!-- 2. Section -->
-        <section class="slide-section" data-background-color="#0f6e56">
-          <h2>Section title</h2>
+        <!-- 2. Section: Terraform -->
+        <section class="slide-section" data-background-color="#158158">
+          <h2>Terraform</h2>
         </section>
 
-        <!-- 3. List with fragments -->
+        <!-- 3. What it is -->
         <section class="slide-list" data-background-color="#ffffff">
           <div class="slide-header-bar"></div>
           <div class="content-pad content-pad-tight">
-            <h2>Key points</h2>
+            <h2>What is Terraform?</h2>
+            <p class="lede">
+              Infrastructure as code: declare cloud and SaaS resources in
+              versioned files, then plan and apply changes through one
+              consistent workflow.
+            </p>
             <ul>
               <li class="fragment fade-up">
-                Replace this list with your talk content
+                Configuration describes the desired state
               </li>
               <li class="fragment fade-up">
-                Keep one idea per slide when you can
+                State tracks what already exists
               </li>
               <li class="fragment fade-up">
-                Use speaker notes for the detail
+                Providers translate that into API calls
               </li>
             </ul>
           </div>
           <aside class="notes">
-            Add speaker notes here. Treat notes as trusted HTML only.
+            Keep this short. The talk is about the sandwich pattern, not a
+            full Terraform workshop.
           </aside>
         </section>
 
-        <!-- 4. Modes (3-column) -->
-        <section class="slide-modes" data-background-color="#ffffff">
-          <div class="content-pad">
-            <h2>Compare options</h2>
-            <div class="modes">
-              <div class="mode-col">
-                <div class="mode-head">Option A</div>
-                <p class="label">Works with</p>
-                <ul>
-                  <li>Short talks</li>
-                  <li>Clear structure</li>
-                </ul>
-                <p class="label">Watch for</p>
-                <ul>
-                  <li>Too much detail</li>
-                </ul>
-              </div>
-              <div class="mode-col">
-                <div class="mode-head">Option B</div>
-                <p class="label">Works with</p>
-                <ul>
-                  <li>Workshops</li>
-                  <li>Live demos</li>
-                </ul>
-                <p class="label">Watch for</p>
-                <ul>
-                  <li>Timing drift</li>
-                </ul>
-              </div>
-              <div class="mode-col">
-                <div class="mode-head">Option C</div>
-                <p class="label">Works with</p>
-                <ul>
-                  <li>Deep dives</li>
-                  <li>Code walkthroughs</li>
-                </ul>
-                <p class="label">Watch for</p>
-                <ul>
-                  <li>Slide overload</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 5. Gallery -->
-        <section class="slide-gallery" data-background-color="#ffffff">
-          <div class="slide-header-bar"></div>
-          <div class="gallery-grid">
-            <img src="assets/gallery-1.svg" alt="Gallery placeholder A" />
-            <img src="assets/gallery-2.svg" alt="Gallery placeholder B" />
-            <img src="assets/gallery-3.svg" alt="Gallery placeholder C" />
-            <img src="assets/gallery-4.svg" alt="Gallery placeholder D" />
-            <img src="assets/gallery-5.svg" alt="Gallery placeholder E" />
-            <img src="assets/gallery-6.svg" alt="Gallery placeholder F" />
-          </div>
-        </section>
-
-        <!-- 6. Diagram -->
+        <!-- 4. How it works: provider -->
         <section class="slide-diagram" data-background-color="#ffffff">
           <div class="slide-header-bar"></div>
           <div class="diagram-frame">
             <img
-              src="assets/diagram-placeholder.svg"
-              alt="Placeholder architecture diagram"
+              src="assets/diagram-provider.svg"
+              alt="Terraform uses a provider to call a target API"
+            />
+          </div>
+          <aside class="notes">
+            Terraform never talks to Azure or AWS directly — the provider does.
+          </aside>
+        </section>
+
+        <!-- 5. Workflow -->
+        <section class="slide-diagram" data-background-color="#ffffff">
+          <div class="slide-header-bar"></div>
+          <div class="diagram-frame">
+            <img
+              src="assets/diagram-workflow.svg"
+              alt="Write, plan, and apply workflow"
             />
           </div>
         </section>
 
-        <!-- 7. Two-tone + split -->
-        <section class="two-tone" data-background-color="#e8ecf0">
-          <div class="tone-header">
-            <h2>Supporting detail</h2>
-          </div>
-          <div class="tone-body">
-            <div class="split-body">
-              <ul>
-                <li>Two-tone slides separate headline chrome from body copy</li>
-                <li>
-                  Use <code>split-body</code> when a diagram sits beside points
-                </li>
-                <li>Delete sample slides you do not use</li>
-              </ul>
-              <img
-                class="diagram-card"
-                src="assets/diagram-placeholder.svg"
-                alt="Placeholder diagram card"
-              />
-            </div>
+        <!-- 6. Why -->
+        <section class="slide-list" data-background-color="#ffffff">
+          <div class="slide-header-bar"></div>
+          <div class="content-pad content-pad-tight">
+            <h2>Why use Terraform?</h2>
+            <ul>
+              <li class="fragment fade-up">Manage any infrastructure</li>
+              <li class="fragment fade-up">Track your infrastructure</li>
+              <li class="fragment fade-up">Automate changes</li>
+              <li class="fragment fade-up">Standardise configurations</li>
+              <li class="fragment fade-up">Collaborate</li>
+            </ul>
           </div>
         </section>
 
-        <!-- 8. Code -->
-        <section class="slide-code" data-background-color="#ffffff">
-          <div class="slide-header-bar"></div>
-          <div class="content-pad content-pad-tight">
-            <h2>Code on slides</h2>
-            <pre><code class="language-javascript" data-trim data-line-numbers="1-3|5-7">
-              // Vite resolves the Pages base path for you
-              const base = import.meta.env.BASE_URL;
-
-              Reveal.initialize({
-                hash: true,
-                plugins: [Highlight, Notes],
-              });
-            </code></pre>
-          </div>
+        <!-- 7. Collision section -->
+        <section
+          class="slide-section section-alt"
+          data-background-color="#1a2a44"
+        >
+          <h2>When love and hate collide</h2>
           <aside class="notes">
-            Step through highlighted lines with fragments via data-line-numbers.
+            Teams love declarative IaC. They hate it when create-time
+            dependencies need a live application that Terraform cannot bring
+            up in the same apply.
           </aside>
         </section>
 
-        <!-- 9. Alt section -->
-        <section
-          class="slide-section section-alt"
-          data-background-color="#1c2434"
-        >
-          <h2>Alternate section</h2>
+        <!-- 8. Sandwich defined -->
+        <section class="two-tone" data-background-color="#f3f3f3">
+          <div class="tone-header">
+            <h2>Terraform Sandwich…</h2>
+          </div>
+          <div class="tone-body">
+            <p class="lede">
+              …is a multi-stage Terraform pattern: run Terraform more than
+              once in a CI/CD pipeline, with an application release between
+              the stages.
+            </p>
+            <ul>
+              <li class="fragment fade-up">
+                Stage 1 creates everything safe to provision first
+              </li>
+              <li class="fragment fade-up">
+                Release deploys and starts the application
+              </li>
+              <li class="fragment fade-up">
+                Stage 2 creates resources that need the app to be alive
+              </li>
+            </ul>
+          </div>
+          <aside class="notes">
+            Corrected from the source deck typo “more and one” → “more than
+            once”.
+          </aside>
         </section>
 
-        <!-- 10. Closing -->
-        <section class="slide-closing" data-background-color="#1c2434">
+        <!-- 9. Problem -->
+        <section class="slide-list" data-background-color="#ffffff">
+          <div class="slide-header-bar"></div>
+          <div class="content-pad content-pad-tight">
+            <h2>For example: Azure Event Grid</h2>
+            <p class="problem-label">Problem</p>
+            <p class="lede">
+              An Azure Functions app must be released and running before
+              Terraform can create the Event Grid subscription that points at
+              it.
+            </p>
+            <ul>
+              <li class="fragment fade-up">
+                A single apply cannot create the subscription first — the
+                endpoint is not there yet
+              </li>
+              <li class="fragment fade-up">
+                Waiting inside one Terraform run couples infra to app deploy
+                timing
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 10. Solution + pipeline -->
+        <section
+          class="slide-diagram diagram-with-lede"
+          data-background-color="#ffffff"
+        >
+          <div class="slide-header-bar"></div>
+          <div class="content-pad content-pad-tight">
+            <h2>Solution</h2>
+            <p class="lede">
+              Terraform 1 creates everything except Event Grid subscriptions;
+              release the app; Terraform 2 creates the subscriptions.
+            </p>
+          </div>
+          <div class="diagram-frame">
+            <img
+              src="assets/diagram-pipeline.svg"
+              alt="CI pipeline with two Terraform stages around a software release"
+            />
+          </div>
+        </section>
+
+        <!-- 11. When to use -->
+        <section class="slide-list" data-background-color="#ffffff">
+          <div class="slide-header-bar"></div>
+          <div class="content-pad content-pad-tight">
+            <h2>When to use it</h2>
+            <ul>
+              <li class="fragment fade-up">
+                Use when create depends on deployed app behaviour or a live
+                endpoint
+              </li>
+              <li class="fragment fade-up">
+                Keep shared state clear between the two Terraform stages
+              </li>
+              <li class="fragment fade-up">
+                Avoid it when a single apply (or a provisioner-free redesign)
+                is enough
+              </li>
+            </ul>
+          </div>
+          <aside class="notes">
+            Prefer redesigning the dependency when you can. The sandwich is a
+            pragmatic escape hatch for ordering constraints CI already owns.
+          </aside>
+        </section>
+
+        <!-- 12. Closing -->
+        <section class="slide-closing" data-background-color="#1a2a44">
           <img
             class="logo logo-tl"
-            src="assets/logo-placeholder-on-dark.svg"
-            alt="Your logo"
+            src="assets/logo-hippo-on-dark.svg"
+            alt="hippo"
+          />
+          <img
+            class="motif"
+            src="assets/fingerprint-motif.svg"
+            alt=""
+            aria-hidden="true"
           />
           <div class="closing-stack">
-            <h2>Thanks</h2>
-            <p class="contact">you@example.com</p>
+            <h2>Thank you</h2>
+            <p class="contact">Terraform Sandwich</p>
           </div>
         </section>
       </div>

@@ -1,8 +1,10 @@
-# Slides as code
+# Terraform Sandwich
 
-Reusable Vite + [reveal.js](https://revealjs.com/) starter for talk decks. Branding is intentionally neutral—set CSS variables and add assets per talk.
+Slide deck for the **Terraform Sandwich** talk — a multi-stage Terraform pattern for CI/CD when resources depend on a running application.
 
-**Live deck (after Pages is enabled):** [https://jrabbott.github.io/slides-as-code/](https://jrabbott.github.io/slides-as-code/)
+Built with Vite + [reveal.js](https://revealjs.com/).
+
+**Live deck (after Pages is enabled):** [https://jrabbott.github.io/terraform-sandwich/](https://jrabbott.github.io/terraform-sandwich/)
 
 ## Requirements
 
@@ -15,7 +17,7 @@ npm ci
 npm run dev
 ```
 
-Open the URL Vite prints (usually `http://localhost:5173/slides-as-code/`).
+Open the URL Vite prints (usually `http://localhost:5173/terraform-sandwich/`).
 
 To check the production build:
 
@@ -36,38 +38,19 @@ npm run audit
 2. Click the slides, then use arrow keys / space to navigate.
 3. Press `F` for fullscreen, `S` for speaker notes, `Esc` for overview.
 4. Slide numbers and URL hashes are enabled so you can deep-link to a slide.
-5. Fragments advance with the same keys; code blocks can step line ranges via `data-line-numbers`.
+5. Fragments advance with the same keys.
 
 Speaker notes in `<aside class="notes">` are author-controlled HTML rendered by reveal.js in the speaker view. Treat them as trusted content only—do not paste untrusted markup into notes.
 
-## New talk checklist
+## Talk outline
 
-1. Use this repo as a GitHub template (Settings → **Template repository**) or clone it.
-2. Rename the package in `package.json` to match the new repo name (local `vite` base falls back to that name).
-3. CI/CD sets `BASE_PATH` from the GitHub repository name automatically—no `vite.config.js` edit required for project Pages.
-4. Replace title, meta description, speakers, and sample slides in `index.html`.
-5. Customize brand tokens in `src/style.css` (`--ink`, `--accent`, etc.) and swap `public/assets/logo-placeholder.svg` (`.logo` / `.logo-tl` slots are ready).
-6. In the new repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-
-### Layout classes in the sample deck
-
-| Class | Use |
-| --- | --- |
-| `slide-title` | Opening title + speakers |
-| `slide-section` / `section-alt` | Section breaks |
-| `slide-list` | Bullets (optional `fragment`) |
-| `slide-modes` | Three-column comparison |
-| `slide-gallery` | 3×2 image grid |
-| `slide-diagram` | Full-bleed diagram |
-| `two-tone` + `split-body` | Header chrome + optional side diagram |
-| `slide-code` | Syntax-highlighted code (`Highlight` plugin) |
-| `slide-closing` | Thanks / contact |
-
-Override the Pages base locally when needed:
-
-```bash
-BASE_PATH=/my-talk/ npm run build
-```
+1. Title — Terraform Sandwich
+2. Terraform primer (what / how / why)
+3. Ordering tension (“when love and hate collide”)
+4. Sandwich definition — run Terraform more than once around a release
+5. Azure Event Grid example — problem, split apply, pipeline
+6. When to use it
+7. Thanks
 
 ## Theming
 
@@ -75,18 +58,18 @@ Brand tokens live at the top of `src/style.css`:
 
 ```css
 :root {
-  --ink: #1c2434;
+  --ink: #1a2a44;
   --muted: #5a6573;
   --surface: #ffffff;
-  --surface-muted: #e8ecf0;
-  --accent: #0f6e56;
+  --surface-muted: #f3f3f3;
+  --accent: #158158;
   --accent-soft: #d8efe7;
   --on-accent: #ffffff;
-  --closing: #1c2434;
+  --closing: #1a2a44;
 }
 ```
 
-Swap fonts by changing the `@fontsource/dm-sans` imports in `src/main.js` and the `--r-*-font` variables.
+Logos and diagrams are original SVGs under `public/assets/` (no third-party marketing artwork).
 
 ## CI and publish
 
@@ -97,6 +80,8 @@ Shared quality gate lives in `.github/actions/build` (`npm ci`, audit, Vite buil
 
 Dependabot watches npm and GitHub Actions weekly.
 
-## Scaffold
+Override the Pages base locally when needed:
 
-Vite + reveal.js 6 with DM Sans, Highlight + Notes plugins, brand-neutral slide layouts, and project Pages base path derived from the repo / package name.
+```bash
+BASE_PATH=/terraform-sandwich/ npm run build
+```

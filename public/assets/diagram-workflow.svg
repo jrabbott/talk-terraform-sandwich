@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="520" viewBox="0 0 1400 520" role="img" aria-label="Write, plan, and apply Terraform workflow">
+  <defs>
+    <style>
+      .label { font-family: DM Sans, Helvetica Neue, Helvetica, Arial, sans-serif; fill: #1A2A44; }
+      .muted { fill: #5a6573; }
+      .head { fill: #158158; }
+      .on { fill: #ffffff; }
+      .card { fill: #ffffff; stroke: #1A2A44; stroke-width: 3; }
+      .arrow { stroke: #158158; stroke-width: 4; fill: none; marker-end: url(#arrowHead); }
+    </style>
+    <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#158158"/>
+    </marker>
+  </defs>
+
+  <!-- Write -->
+  <rect x="40" y="80" width="380" height="360" rx="16" class="card"/>
+  <rect x="40" y="80" width="380" height="72" rx="16" class="head"/>
+  <rect x="40" y="120" width="380" height="32" class="head"/>
+  <text x="230" y="128" text-anchor="middle" class="on" font-size="32" font-weight="700">Write</text>
+  <text x="230" y="220" text-anchor="middle" class="label" font-size="24" font-weight="700">Define infrastructure</text>
+  <text x="230" y="265" text-anchor="middle" class="label muted" font-size="22">in configuration files</text>
+  <text x="230" y="320" text-anchor="middle" class="label muted" font-size="20">.tf + remote state</text>
+
+  <path d="M440 260 H500" class="arrow"/>
+
+  <!-- Plan -->
+  <rect x="520" y="80" width="380" height="360" rx="16" class="card"/>
+  <rect x="520" y="80" width="380" height="72" rx="16" class="head"/>
+  <rect x="520" y="120" width="380" height="32" class="head"/>
+  <text x="710" y="128" text-anchor="middle" class="on" font-size="32" font-weight="700">Plan</text>
+  <text x="710" y="220" text-anchor="middle" class="label" font-size="24" font-weight="700">Preview the diff</text>
+  <text x="710" y="265" text-anchor="middle" class="label muted" font-size="22">before changing anything</text>
+  <text x="710" y="320" text-anchor="middle" class="label muted" font-size="20">terraform plan</text>
+
+  <path d="M920 260 H980" class="arrow"/>
+
+  <!-- Apply -->
+  <rect x="1000" y="80" width="360" height="360" rx="16" class="card"/>
+  <rect x="1000" y="80" width="360" height="72" rx="16" class="head"/>
+  <rect x="1000" y="120" width="360" height="32" class="head"/>
+  <text x="1180" y="128" text-anchor="middle" class="on" font-size="32" font-weight="700">Apply</text>
+  <text x="1180" y="220" text-anchor="middle" class="label" font-size="24" font-weight="700">Provision resources</text>
+  <text x="1180" y="265" text-anchor="middle" class="label muted" font-size="22">and update state</text>
+  <text x="1180" y="320" text-anchor="middle" class="label muted" font-size="20">terraform apply</text>
+</svg>
