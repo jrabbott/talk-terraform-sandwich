@@ -164,12 +164,13 @@ body {
 .slide-title .title-stack {
   position: relative;
   z-index: 2;
-  max-width: 15em;
+  max-width: none;
   margin: 3.2em 0 0 1.6em;
 }
 
 .slide-title h1 {
   margin-bottom: 0.4em;
+  white-space: nowrap;
 }
 
 .slide-title .eyebrow {
