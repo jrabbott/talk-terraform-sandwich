@@ -41,21 +41,21 @@
   <!-- Terraform 1 -->
   <rect x="370" y="120" width="220" height="120" rx="18" class="step"/>
   <text x="480" y="175" text-anchor="middle" class="label" font-size="24" font-weight="700">Terraform 1</text>
-  <text x="480" y="210" text-anchor="middle" class="muted" font-size="18">infra minus EG</text>
+  <text x="480" y="210" text-anchor="middle" class="muted" font-size="18">app + topic</text>
 
   <path d="M600 180 H670" class="arrow"/>
 
   <!-- Release -->
   <circle cx="750" cy="180" r="70" class="accent"/>
   <text x="750" y="175" text-anchor="middle" class="on" font-size="22" font-weight="700">Release</text>
-  <text x="750" y="205" text-anchor="middle" class="on" font-size="20">software</text>
+  <text x="750" y="205" text-anchor="middle" class="on" font-size="18">function code</text>
 
   <path d="M830 180 H900" class="arrow"/>
 
   <!-- Terraform 2 -->
   <rect x="910" y="120" width="220" height="120" rx="18" class="step"/>
   <text x="1020" y="175" text-anchor="middle" class="label" font-size="24" font-weight="700">Terraform 2</text>
-  <text x="1020" y="210" text-anchor="middle" class="muted" font-size="18">subscriptions</text>
+  <text x="1020" y="210" text-anchor="middle" class="muted" font-size="18">create subs</text>
 
   <path d="M1140 180 H1210" class="arrow"/>
 
@@ -69,7 +69,7 @@
   <rect x="1220" y="380" width="240" height="80" rx="12" class="step"/>
   <text x="1340" y="430" text-anchor="middle" class="label" font-size="22" font-weight="700">Admin scripts</text>
 
-  <text x="750" y="470" text-anchor="middle" class="muted" font-size="22">
-    App must be running before Event Grid subscriptions can be created
+  <text x="750" y="470" text-anchor="middle" class="muted" font-size="20">
+    Endpoint validation needs the function before subscriptions can be created
   </text>
 </svg>

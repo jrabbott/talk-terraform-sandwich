@@ -127,41 +127,82 @@
           </aside>
         </section>
 
-        <!-- 9. Problem -->
+        <!-- 9. Example: circular dependency -->
         <section class="slide-list" data-background-color="#f2eee6">
           <div class="content-pad content-pad-tight">
             <h2>For example: Azure Event Grid</h2>
             <p class="lede">
-              An Azure Functions app must be released and running before
-              Terraform can create the Event Grid subscription that points at
-              it.
+              Event Grid validates the Azure Function endpoint when the
+              subscription is created — function code must already exist, not
+              just the Function App.
             </p>
             <ul>
               <li class="fragment">
-                A single apply cannot create the subscription first — the
-                endpoint is not there yet
+                You cannot create the subscription until the function (with
+                its name and metadata) is deployed
               </li>
               <li class="fragment">
-                Waiting inside one Terraform run couples infra to app deploy
-                timing
+                You cannot deploy that function until the Function App is
+                provisioned
+              </li>
+              <li class="fragment">
+                A single greenfield apply hits a circular dependency
               </li>
             </ul>
           </div>
+          <aside class="notes">
+            From Mark Tinderholt’s “Terraform Apply Sandwich” write-up: empty
+            Function App ≠ healthy Event Grid trigger. Waiting inside one
+            Terraform run couples infra to app deploy timing and still fails
+            validation on first create.
+          </aside>
         </section>
 
-        <!-- 10. Solution + pipeline -->
+        <!-- 10. Example: failure mode -->
+        <section class="slide-list" data-background-color="#f2eee6">
+          <div class="content-pad content-pad-tight">
+            <h2>What fails on first apply</h2>
+            <p class="lede">
+              Azure rejects the subscription while polling CreateOrUpdate —
+              Terraform exits with code 1.
+            </p>
+            <ul>
+              <li class="fragment">
+                Code: <code>Endpoint validation</code>
+              </li>
+              <li class="fragment">
+                Message gist: destination endpoint not found — the function
+                resource should pre-exist
+              </li>
+              <li class="fragment">
+                Typical path ends in
+                <code>…/functions/&lt;FunctionName&gt;</code>
+              </li>
+            </ul>
+          </div>
+          <aside class="notes">
+            Real error shape:
+            Status Failed, Code “Endpoint validation”, Message “Destination
+            endpoint not found. Resource details: resourceId:
+            …/sites/func-…/functions/InternalSubscriber. Resource should
+            pre-exist before attempting this operation.” The Function App
+            may already exist; the named function does not yet.
+          </aside>
+        </section>
+
+        <!-- 11. Solution + pipeline -->
         <section class="slide-split" data-background-color="#f2eee6">
           <div class="content-pad">
             <h2>Solution</h2>
             <div class="split-body">
               <ul>
                 <li>
-                  Terraform 1 creates everything except Event Grid
-                  subscriptions
+                  Terraform 1: Function App + topic; subscriptions disabled
+                  (<code>eventgrid_subscriptions_enabled = false</code>)
                 </li>
-                <li>Release the app so the endpoint is live</li>
+                <li>Release: deploy the named function so it is discoverable</li>
                 <li>
-                  Terraform 2 creates the Event Grid subscriptions
+                  Terraform 2: enable the flag and create the subscriptions
                 </li>
               </ul>
               <img
@@ -171,9 +212,41 @@
               />
             </div>
           </div>
+          <aside class="notes">
+            Gate subscription resources only on bootstrap. Flipping the flag
+            back to false later can destroy live subscriptions via count.
+          </aside>
         </section>
 
-        <!-- 11. When to use -->
+        <!-- 12. Mechanism: count gate -->
+        <section class="slide-code" data-background-color="#f2eee6">
+          <div class="content-pad content-pad-tight">
+            <h2>Gate with count</h2>
+            <p class="lede">
+              Conditionally include the subscription until the function
+              endpoint can pass validation.
+            </p>
+            <pre><code class="language-hcl" data-trim>
+resource "azurerm_eventgrid_event_subscription" "internal" {
+  count = var.eventgrid_subscriptions_enabled ? 1 : 0
+
+  name  = "evgs-${var.name}-internal"
+  scope = azurerm_eventgrid_topic.main.id
+
+  azure_function_endpoint {
+    function_id = local.subscriber_endpoint
+  }
+}
+            </code></pre>
+          </div>
+          <aside class="notes">
+            First apply with the flag false; deploy code; second apply with
+            true. Prefer a create-gate over casually toggling count in
+            production pipelines.
+          </aside>
+        </section>
+
+        <!-- 13. When to use -->
         <section class="slide-list" data-background-color="#f2eee6">
           <div class="content-pad content-pad-tight">
             <h2>When to use it</h2>
@@ -181,6 +254,10 @@
               <li class="fragment">
                 Use when create depends on deployed app behaviour or a live
                 endpoint
+              </li>
+              <li class="fragment">
+                Mostly a first-bring-up problem — later deploys are one-pass
+                if the function name stays stable
               </li>
               <li class="fragment">
                 Keep shared state clear between the two Terraform stages
@@ -194,6 +271,9 @@
           <aside class="notes">
             Prefer redesigning the dependency when you can. The sandwich is a
             pragmatic escape hatch for ordering constraints CI already owns.
+            Expect a window without subscriptions while the flag is off —
+            events are not routed until Terraform 2 succeeds. Renaming the
+            function can force the sandwich again.
           </aside>
         </section>
 
