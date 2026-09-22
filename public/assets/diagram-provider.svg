@@ -40,8 +40,6 @@
   <path d="M930 260 H1020" class="arrow"/>
 
   <rect x="1040" y="140" width="320" height="240" rx="16" class="box"/>
-  <ellipse cx="1200" cy="175" rx="54" ry="28" fill="#0c6b52" opacity="0.2"/>
-  <ellipse cx="1200" cy="175" rx="36" ry="18" fill="#0c6b52" opacity="0.35"/>
   <text x="1200" y="230" text-anchor="middle" class="label" font-size="28" font-weight="700">Target API</text>
   <text x="1200" y="275" text-anchor="middle" class="label muted" font-size="22">cloud / SaaS</text>
 </svg>
