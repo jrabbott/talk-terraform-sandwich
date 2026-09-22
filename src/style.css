@@ -126,6 +126,18 @@ body {
   padding: 0.15em 0.35em;
 }
 
+.reveal p code,
+.reveal li code {
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+    monospace;
+  font-size: 0.88em;
+  letter-spacing: 0;
+  word-spacing: 0;
+  padding: 0.08em 0.28em;
+  background: var(--code-surface);
+  color: var(--ink);
+  border-radius: 0.2em;
+}
 .reveal a:focus-visible,
 .reveal .controls button:focus-visible,
 .reveal .slide-number:focus-visible {
@@ -345,15 +357,16 @@ body {
   max-width: 36em;
   margin: 0.7em 0 0;
   box-shadow: none;
-  font-size: 0.72em;
+  font-size: 0.68em;
   letter-spacing: 0;
   word-spacing: 0;
 }
 
 .slide-code pre code {
   padding: 1em 1.15em;
-  max-height: 12em;
-  line-height: 1.55;
+  max-height: none;
+  line-height: 1.5;
+  overflow: visible;
 }
 
 .reveal .hljs {

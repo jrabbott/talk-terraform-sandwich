@@ -230,11 +230,11 @@
 resource "azurerm_eventgrid_event_subscription" "internal" {
   count = var.eventgrid_subscriptions_enabled ? 1 : 0
 
-  name  = "evgs-${var.name}-${var.location}-internal"
+  name  = "evgs-${var.name}-internal"
   scope = azurerm_eventgrid_topic.main.id
 
   azure_function_endpoint {
-    function_id = local.eventgrid_internal_subscriber_endpoint
+    function_id = local.subscriber_endpoint
   }
 }
             </code></pre>
