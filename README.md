@@ -2,10 +2,6 @@
 
 Slide deck for the **Terraform Sandwich** talk — a multi-stage Terraform pattern for CI/CD when resources depend on a running application.
 
-Built with Vite + [reveal.js](https://revealjs.com/).
-
-**Live deck:** [https://jrabbott.github.io/talk-terraform-sandwich/](https://jrabbott.github.io/talk-terraform-sandwich/)
-
 ## Requirements & run locally
 
 - **Node.js 22+** (see `.nvmrc`)
