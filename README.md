@@ -48,9 +48,10 @@ Speaker notes in `<aside class="notes">` are author-controlled HTML rendered by 
 2. Terraform primer (what / how / why)
 3. Ordering tension (“when love and hate collide”)
 4. Sandwich definition — run Terraform more than once around a release
-5. Azure Event Grid example — problem, split apply, pipeline
-6. When to use it
-7. Thanks
+5. Azure Event Grid example — circular dependency, endpoint validation failure
+6. Solution — split apply, pipeline, `count` gate
+7. When to use it (first bring-up vs later deploys)
+8. Thanks
 
 ## Theming
 
